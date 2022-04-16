@@ -12,14 +12,12 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <p>{services.length}</p>
             {
                 services.map(service=><Service
                     key={service.id}
                     service={service}
                 ></Service>)
             }
-            <h1>This is home</h1>
             <ExtraServices></ExtraServices>
         </div>
     );

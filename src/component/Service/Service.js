@@ -1,11 +1,14 @@
 import React from 'react';
 
 const Service = ({ service }) => {
-    const { id, name, image, desctiption } = service;
+    const { id, name, price, image, description } = service;
     return (
         <div>
-            <p>{name}</p>
             <img src={image} alt="image" />
+            <h2>{name}</h2>
+            <h3>$ {price}</h3>
+            <p>{description}</p>
+            <button>Order</button>
         </div>
     );
 };
