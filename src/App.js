@@ -8,7 +8,7 @@ import About from './component/About/About';
 import Blog from './component/Blog/Blog';
 import Footer from './component/Footer/Footer';
 import CheckOut from './component/CheckOut/CheckOut';
-import RequireAuth from './component/RequireAuth/RequireAuth';
+import Register from './component/Register/Register';
 
 
 function App() {
@@ -21,8 +21,8 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/service/:serviceId' element={<CheckOut></CheckOut>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
       </Routes>
-
       <Footer></Footer>
     </div>
   );

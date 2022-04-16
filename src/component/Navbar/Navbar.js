@@ -4,7 +4,7 @@ import CustomLink from '../CustomLink/CustomLink';
 
 const Navbar = () => {
     return (
-        <div className='flex justify-between items-center'>
+        <div className='md:flex md:px-40 py-5 justify-between'>
             <div>
                 <h2>Expert Weeding Photographer</h2>
             </div>
@@ -13,6 +13,7 @@ const Navbar = () => {
                 <CustomLink className='px-2' to='/blog'>Blog</CustomLink>
                 <CustomLink className='px-2' to='/about'>About</CustomLink>
                 <CustomLink className='px-2' to='/login'>Login</CustomLink>
+                <CustomLink className='px-2' to='/register'>Register</CustomLink>
             </div>
 
         </div>
