@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Service = ({ service }) => {
     const { id, name, price, image, description } = service;
@@ -19,7 +19,7 @@ const Service = ({ service }) => {
             </div>
 
             <div className='px-3'>
-                <button onClick={() => handleCheckout(id)} className='bg-orange-500 hover:bg-orange-600 w-full duration-700 text-white uppercase p-3 mt-8 mb-8 rounded font-bold'>Order : <span className='font-semibold'>{id}</span> </button>
+                <button onClick={() => handleCheckout(id)} className='bg-orange-500 hover:bg-orange-600 w-full duration-700 text-white uppercase p-3 mt-8 mb-8 rounded font-bold'>Order Now <span className='font-semibold'>{id}</span> </button>
             </div>
         </div>
     );

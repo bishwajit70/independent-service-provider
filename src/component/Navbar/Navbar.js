@@ -18,19 +18,17 @@ const Navbar = () => {
     return (
         <div className='md:flex md:px-40 py-5 justify-between'>
             <div>
-                <h2>Expert Weeding Photographer</h2>
+                <h2 className='text-3xl font-bold text-orange-500'>Weeding Photographer</h2>
             </div>
             <div className='flex items-center justify-center'>
-                <CustomLink className='px-2' to='/'>Home</CustomLink>
-                <CustomLink className='px-2' to='/blog'>Blog</CustomLink>
-                <CustomLink className='px-2' to='/checkout'>Checkout</CustomLink>
-
-                <CustomLink className='px-2' to='/about'>About</CustomLink>
+                <CustomLink className='px-5 py-3 hover:text-orange-500' to='/'>Home</CustomLink>
+                <CustomLink className='px-5 py-3 hover:text-orange-500' to='/blog'>Blog</CustomLink>
+                <CustomLink className='px-5 py-3 hover:text-orange-500 ' to='/about'>About</CustomLink>
                 {
                     user ?
-                        <CustomLink onClick={handleSignOut} className='px-2 py-5' to='/login'>Sign Out</CustomLink>
+                        <CustomLink onClick={handleSignOut} className='px-4  py-2 rounded-md' to='/login'>Sign Out</CustomLink>
                         :
-                        <CustomLink className='px-2' to='/login'>Login</CustomLink>}
+                        <CustomLink className='px-4 py-2 rounded-md text-white bg-orange-500' to='/login'>Login</CustomLink>}
 
             </div>
 

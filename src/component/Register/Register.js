@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
 
@@ -59,6 +60,7 @@ const Register = () => {
                         <h2 className='text-center font-bold py-1 text-slate-500'>OR</h2>
                         <div className='bg-slate-500 w-1/2 md:w-2/5 h-0.5'></div>
                     </div>
+                    <SocialLogin></SocialLogin>
                 </form>
             </div>
         </div>

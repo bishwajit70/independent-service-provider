@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
     let location = useLocation()
-    
+
 
 
     const [
@@ -60,6 +61,7 @@ const Login = () => {
                     <h2 className='text-center font-bold py-1 text-slate-500'>OR</h2>
                     <div className='bg-slate-500 w-1/2 md:w-2/5 h-0.5'></div>
                 </div>
+                <SocialLogin></SocialLogin>
             </form>
         </div>
     );
