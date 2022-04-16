@@ -10,6 +10,7 @@ import Footer from './component/Footer/Footer';
 import CheckOut from './component/CheckOut/CheckOut';
 import RequireAuth from './component/RequireAuth/RequireAuth';
 
+
 function App() {
   return (
     <div className="App">
@@ -25,6 +26,7 @@ function App() {
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
       </Routes>
+
       <Footer></Footer>
     </div>
   );
