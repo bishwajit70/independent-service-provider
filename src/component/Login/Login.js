@@ -1,18 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Login = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const handleEmailBlur = (event) => {
+        setEmail(event.target.value)
+    }
+    const handlePasswordBlur = (event) => {
+        setPassword(event.target.value)
+    }
+    const handleSignInWithEmailPassword = (event) => {
+        event.preventDefault()
+        signInWithEmailAndPassword(email, password)
+    }
+
+
+
     return (
         <div className='border-2 ml-2 mr-2 mt-5 border-b-orange-300 border-l-orange-300 shadow-2xl w-90% md:w-4/6 lg:w-2/6 p-5 rounded md:mx-auto'>
-            <form className='grid'>
+            <form onSubmit={handleSignInWithEmailPassword} className='grid'>
                 <h2 className='text-center pb-2 font-bold text-2xl text-orange-500'>Please Login</h2>
                 <div className='grid mb-2 text-left w-full md:w-4/5 mx-auto'>
                     <label className='pb-2' htmlFor="email">Email</label>
-                    <input className='border-2 p-2 rounded' type="text" name="email" id="email" required />
+                    <input onBlur={handleEmailBlur} className='border-2 p-2 rounded' type="text" name="email" id="email" required />
                 </div>
                 <div className='grid mb-2 text-left w-full md:w-4/5 mx-auto'>
                     <label className='pb-2' htmlFor="password">Password</label>
-                    <input className='border-2 p-2 rounded' type="password" name="password" id="password" required />
+                    <input onBlur={handlePasswordBlur} className='border-2 p-2 rounded' type="password" name="password" id="password" required />
                 </div>
                 <div className='grid my-2 text-left w-full md:w-4/5 mx-auto'>
                     <input className='cursor-pointer duration-700 bg-orange-500 hover:bg-orange-600 text-white font-semibold uppercase p-2 rounded' type="submit" value="Login" />
