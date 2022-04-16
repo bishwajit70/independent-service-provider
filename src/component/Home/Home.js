@@ -7,8 +7,6 @@ import Service from '../Service/Service';
 
 const Home = () => {
     const [services] = useServices()
-    
-
     return (
         <div>
             <Banner></Banner>
