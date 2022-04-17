@@ -15,6 +15,7 @@ const Login = () => {
     const navigate = useNavigate()
     let location = useLocation()
     let errorElement;
+
     const [
         signInWithEmailAndPassword,
         user,
@@ -36,22 +37,26 @@ const Login = () => {
     const handlePasswordBlur = (event) => {
         setPassword(event.target.value)
     }
+    if (error) {
+        errorElement = <p className='text-orange-600'>Error: {error?.message}</p>;
+    }
     const handleSignInWithEmailPassword = (event) => {
         event.preventDefault()
-        if (error) {
-            errorElement = <p className='text-orange-600'>Error: {error?.message}</p>;
-            return;
-        }
         signInWithEmailAndPassword(email, password)
     }
-    
+
 
     if (sending) {
         return <Loading></Loading>
     }
     const resetPassword = async () => {
-        await sendPasswordResetEmail(email);
-        toast('Sent email');
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        } else {
+            toast('Please enter your email address')
+        }
+
     }
 
     return (
@@ -66,7 +71,7 @@ const Login = () => {
                     <label className='pb-2' htmlFor="password">Password</label>
                     <input onBlur={handlePasswordBlur} className='border-2 p-2 rounded' type="password" name="password" id="password" required />
                 </div>
-                {errorElement}
+                <p>{errorElement}</p>
                 <div className='grid my-2 text-left w-full md:w-4/5 mx-auto'>
                     <input
                         className='cursor-pointer duration-700 bg-orange-500 hover:bg-orange-600 text-white font-semibold uppercase p-2 rounded' type="submit" value="Login" />

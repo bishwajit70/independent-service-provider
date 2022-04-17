@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className='mx-5 pt-5 grid grid-flow-row md:px-5 lg:px-10 xl:px-40 md:pt-20  md:flex justify-between items-center'>
+        <div className='px-5 pt-20 md:px-5 lg:px-10 xl:px-40 grid grid-flow-row md:flex justify-between items-center'>
             <div className='text-left w-full pb-10 md:w-1/2 md:mr-5'>
                 <h1 className='text-orange-500 text-5xl pb-3'>Keep Happy </h1>
                 <h1 className='text-orange-500 text-5xl pb-3'>Memories Forever</h1>
