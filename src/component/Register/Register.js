@@ -6,7 +6,6 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
 
-
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -16,7 +15,7 @@ const Register = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const handleEmailBlur = (event) => {
         setEmail(event.target.value)
