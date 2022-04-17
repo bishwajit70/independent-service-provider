@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
-
+    const location = useLocation()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    const navigate = useNavigate()
 
     const [
         createUserWithEmailAndPassword,
@@ -29,6 +30,12 @@ const Register = () => {
     const handleCreateUser = (event) => {
         event.preventDefault()
         createUserWithEmailAndPassword(email, password)
+    }
+    
+    let from = location.state?.from?.pathname || "/";
+
+    if (user) {
+        navigate(from, { replace: true });
     }
 
     return (
