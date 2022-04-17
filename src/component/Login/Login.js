@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -18,6 +19,8 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending, error1] = useSendPasswordResetEmail(auth);
 
     let from = location.state?.from?.pathname || "/";
 
@@ -51,10 +54,15 @@ const Login = () => {
                     <input onBlur={handlePasswordBlur} className='border-2 p-2 rounded' type="password" name="password" id="password" required />
                 </div>
                 <div className='grid my-2 text-left w-full md:w-4/5 mx-auto'>
-                    <input className='cursor-pointer duration-700 bg-orange-500 hover:bg-orange-600 text-white font-semibold uppercase p-2 rounded' type="submit" value="Login" />
+                    <input
+                        onClick={async () => {
+                            await sendPasswordResetEmail(email);
+                            alert('Sent email');
+                        }}
+                        className='cursor-pointer duration-700 bg-orange-500 hover:bg-orange-600 text-white font-semibold uppercase p-2 rounded' type="submit" value="Login" />
                 </div>
                 <div className='grid my-5 text-left w-full md:w-4/5 mx-auto'>
-                    <p>New to hotel booking? <Link to='/register' className='text-orange-500 cursor-pointer'>Please Register</Link> </p>
+                    <p>Don't have an account? <Link to='/register' className='text-orange-500 cursor-pointer'>Please Register</Link> </p>
                 </div>
                 <div className='w-100 px-2 md:px-10 flex w-full items-center justify-around'>
                     <div className='bg-slate-500 w-1/2 md:w-2/5 h-0.5'></div>

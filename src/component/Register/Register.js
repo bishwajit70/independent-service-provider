@@ -29,9 +29,12 @@ const Register = () => {
     }
     const handleCreateUser = (event) => {
         event.preventDefault()
+        if (password !== confirmPassword) {
+            return alert('Password Does Not Match');
+        }
         createUserWithEmailAndPassword(email, password)
     }
-    
+
     let from = location.state?.from?.pathname || "/";
 
     if (user) {
