@@ -9,7 +9,10 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    const [passwordError, setPasswoardError] = useState('')
     const navigate = useNavigate()
+    let errorElement;
+
 
     const [
         createUserWithEmailAndPassword,
@@ -30,7 +33,8 @@ const Register = () => {
     const handleCreateUser = (event) => {
         event.preventDefault()
         if (password !== confirmPassword) {
-            return alert('Password Does Not Match');
+            setPasswoardError('Your two Passwords not matched')
+            return;
         }
         createUserWithEmailAndPassword(email, password)
     }
@@ -58,6 +62,7 @@ const Register = () => {
                         <label className='pb-2' htmlFor="password">Confirm Password</label>
                         <input onBlur={handleConfirmPasswordBlur} className='border-2 p-2 rounded' type="password" name="confirmPassword" id="confirmPassword" required />
                     </div>
+                    <p className='text-orange-500'>{passwordError}</p>
                     <div className='grid my-2 text-left w-full md:w-4/5 mx-auto'>
                         <input className='cursor-pointer duration-700 bg-orange-500 hover:bg-orange-600 text-white font-semibold uppercase p-2 rounded' type="submit" value="Register" />
                     </div>

@@ -16,9 +16,9 @@ const Navbar = () => {
     }
 
     return (
-        <div className='md:flex md:px-40 py-5 justify-between'>
+        <div className='md:flex md:px-40 py-5 justify-between shadow-md'>
             <div>
-                <h2 className='text-3xl font-bold text-orange-500'>Wedding Photographer</h2>
+                <h2 className='text-2xl pb-5 md:text-3xl font-bold text-orange-500'>Wedding Photographer</h2>
             </div>
             <div className='flex items-center justify-center'>
                 <CustomLink className='px-5 py-3 hover:text-orange-500' to='/'>Home</CustomLink>

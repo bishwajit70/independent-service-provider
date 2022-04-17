@@ -5,7 +5,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
-
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,9 +14,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
     let location = useLocation()
-
-
-
+    let errorElement;
     const [
         signInWithEmailAndPassword,
         user,
@@ -32,9 +29,6 @@ const Login = () => {
     if (user) {
         navigate(from, { replace: true });
     }
-    if (loading || sending) {
-        return <Loading></Loading>
-    }
 
     const handleEmailBlur = (event) => {
         setEmail(event.target.value)
@@ -44,10 +38,21 @@ const Login = () => {
     }
     const handleSignInWithEmailPassword = (event) => {
         event.preventDefault()
+        if (error) {
+            errorElement = <p className='text-orange-600'>Error: {error?.message}</p>;
+            return;
+        }
         signInWithEmailAndPassword(email, password)
     }
+    
 
-
+    if (sending) {
+        return <Loading></Loading>
+    }
+    const resetPassword = async () => {
+        await sendPasswordResetEmail(email);
+        toast('Sent email');
+    }
 
     return (
         <div className='border-2 ml-2 mr-2 mt-5 border-b-orange-300 border-l-orange-300 shadow-2xl w-90% md:w-4/6 lg:w-2/6 p-5 rounded md:mx-auto'>
@@ -61,14 +66,12 @@ const Login = () => {
                     <label className='pb-2' htmlFor="password">Password</label>
                     <input onBlur={handlePasswordBlur} className='border-2 p-2 rounded' type="password" name="password" id="password" required />
                 </div>
+                {errorElement}
                 <div className='grid my-2 text-left w-full md:w-4/5 mx-auto'>
                     <input
-                        onClick={async () => {
-                            await sendPasswordResetEmail(email);
-                            toast('Sent email');
-                        }}
                         className='cursor-pointer duration-700 bg-orange-500 hover:bg-orange-600 text-white font-semibold uppercase p-2 rounded' type="submit" value="Login" />
                 </div>
+
                 <div className='grid my-5 text-left w-full md:w-4/5 mx-auto'>
                     <p>Don't have an account? <Link to='/register' className='text-orange-500 cursor-pointer'>Please Register</Link> </p>
                 </div>
@@ -77,9 +80,15 @@ const Login = () => {
                     <h2 className='text-center font-bold py-1 text-slate-500'>OR</h2>
                     <div className='bg-slate-500 w-1/2 md:w-2/5 h-0.5'></div>
                 </div>
-                <SocialLogin></SocialLogin>
-                <ToastContainer />
             </form>
+            <SocialLogin></SocialLogin>
+            <div className='grid my-2 text-left w-full md:w-4/5 mx-auto'>
+                <input onClick={resetPassword}
+                    className='cursor-pointer duration-700 bg-orange-500 hover:bg-orange-600 text-white font-semibold uppercase p-2 rounded' type="submit" value="Reset Password" />
+
+            </div>
+            <ToastContainer />
+
         </div>
     );
 };
