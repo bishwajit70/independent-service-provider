@@ -10,6 +10,7 @@ import Footer from './component/Footer/Footer';
 import CheckOut from './component/CheckOut/CheckOut';
 import Register from './component/Register/Register';
 import RequireAuth from './component/RequireAuth/RequireAuth';
+import PageNotFound from './component/PageNotFound/PageNotFound';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
