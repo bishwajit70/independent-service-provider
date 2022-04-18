@@ -1,10 +1,8 @@
 import React from 'react';
-import useExtra from '../../hooks/useExtra';
 import useServices from '../../hooks/useServices';
 import Banner from '../Banner/Banner';
 import ExtraServices from '../ExtraServices/ExtraServices';
 import Service from '../Service/Service';
-import SingleExtra from '../SingleExtra/SingleExtra';
 
 
 const Home = () => {
@@ -12,7 +10,7 @@ const Home = () => {
     
 
     return (
-        <div className=''>
+        <div>
             <Banner></Banner>
             <div>
                 <h2 className='text-5xl text-orange-500 font-bold text-center py-20'>Regular Services</h2>
