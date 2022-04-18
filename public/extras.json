@@ -1,21 +1,21 @@
 [
     {
         "id": "1",
-        "name": "Maternity photoshoot",
+        "name": "Maternity Shoot",
         "price": 400,
         "image": "https://img.freepik.com/free-photo/couple-handsome-man-pregnant-woman-taking-self-portrait_132075-11794.jpg",
         "description": "There can only be a few moments when our life feels complete, maternity is one of those. So, why not capture and let the moments live forever?.\r\n"
     },
     {
         "id": "2",
-        "name": "Newborn photoshoot",
+        "name": "Newborn Shoot",
         "price": 600,
         "image": "https://img.freepik.com/free-photo/full-size-photo-positive-three-people-mommy-daddy-small-kid-girl-boy-bouncer-parents-make-hands-roof-enjoying-sit-floor-light-kitchen-indoors_176532-15011.jpg",
         "description": "Kids will grow up in a blink, nothing can be done about that. You can capture these short-lasting beautiful moments to feed your forever longing soul though.\r\n"
     },
     {
         "id": "3",
-        "name": "Portrait photoshoot",
+        "name": "Portrait Shoot",
         "price": 212,
         "image": "https://img.freepik.com/free-photo/friendly-smiling-woman-looking-pleased-front_176420-20779.jpg",
         "description": "A stunning portrait is when the personality of the subject shines through the frame. Our skilled photographers will make sure of that.\r\n"
