@@ -1,12 +1,16 @@
 import React from 'react';
+import useExtra from '../../hooks/useExtra';
 import useServices from '../../hooks/useServices';
 import Banner from '../Banner/Banner';
 import ExtraServices from '../ExtraServices/ExtraServices';
 import Service from '../Service/Service';
+import SingleExtra from '../SingleExtra/SingleExtra';
 
 
 const Home = () => {
     const [services] = useServices()
+    
+
     return (
         <div className=''>
             <Banner></Banner>
@@ -22,8 +26,6 @@ const Home = () => {
                     }
                 </div>
             </div>
-
-
             <ExtraServices></ExtraServices>
         </div>
     );
