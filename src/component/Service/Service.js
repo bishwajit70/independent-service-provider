@@ -11,7 +11,7 @@ const Service = ({ service }) => {
     }
     return (
         <div className='rounded-lg border border-b-orange-300 border-l-orange-300 shadow-2xl'>
-            <img src={image} alt="" />
+            <img className='rounded-tl-md rounded-tr-md' src={image} alt="" />
             <div className='text-left px-3 py-3'>
                 <h2 className='text-2xl pb-3 font-semibold'>{name}</h2>
                 <h3 className='text-xl pb-2 font-semibold'>Price : $ {price}</h3>
