@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Wedding Photographer](https://weeding-photographer-669b5.web.app/).
 
 ## Available Scripts
 
