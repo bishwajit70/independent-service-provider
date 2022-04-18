@@ -1,6 +1,16 @@
-# Getting Started with Create React App
+# Wedding Photographer
 
-This project was bootstrapped with [Wedding Photographer](https://weeding-photographer-669b5.web.app/).
+# This project was bootstrapped with [Wedding Photographer](https://weeding-photographer-669b5.web.app/).
+
+# Functionality: 
+* Used Login system with email and password
+* Used Login system with google 
+* Used Login system with Github
+* Used Resgister user with email and password
+* Will give error if user is not registered.
+* If the user want to see order website will redirect to login page if user not logged in
+* User can reset password   
+* User will get verification email
 
 ## Available Scripts
 
