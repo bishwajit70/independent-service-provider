@@ -11,7 +11,6 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [passwordError, setPasswoardError] = useState('')
     const navigate = useNavigate()
-    let errorElement;
 
 
     const [
@@ -33,7 +32,7 @@ const Register = () => {
     const handleCreateUser = (event) => {
         event.preventDefault()
         if (password !== confirmPassword) {
-            setPasswoardError('Your two Passwords not matched')
+            setPasswoardError('Your two Passwords are not matched')
             return;
         }
         createUserWithEmailAndPassword(email, password)
