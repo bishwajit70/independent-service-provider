@@ -3,7 +3,7 @@
 # This project was bootstrapped with [Wedding Photographer](https://weeding-photographer-669b5.web.app/).
 
 # Functionality: 
-* Used Login system with email and password
+* Used Login system with email / password
 * Used Login system with google 
 * Used Login system with Github
 * Used Resgister user with email and password
